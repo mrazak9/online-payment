@@ -13,25 +13,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix' => 'admin'], function () {
+    Route::view('/', 'admin.dashboard')->name('admin.dashboard');
+    Route::resource('faculties', 'App\Http\Controllers\FacultyController');
+    Route::resource('program_studies', 'App\Http\Controllers\ProgramStudyController');
+    Route::resource('concentrations', 'App\Http\Controllers\ConcentrationController');
+    Route::resource('frequencies', 'App\Http\Controllers\FrequencyController');
+    Route::resource('frequencies', 'App\Http\Controllers\FrequencyController');
+    Route::resource('discounts', 'App\Http\Controllers\DiscountController');
+    // Route::get('/faculties',[App\Http\Controllers\FacultyController::class,'index']);F
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::resource('faculties', 'App\Http\Controllers\FacultyController');
-Route::resource('program_studies', 'App\Http\Controllers\ProgramStudyController');
-Route::resource('concentrations', 'App\Http\Controllers\ConcentrationController');
-Route::resource('frequencies', 'App\Http\Controllers\FrequencyController');
-Route::resource('frequencies', 'App\Http\Controllers\FrequencyController');
-Route::resource('discounts', 'App\Http\Controllers\DiscountController');
-// Route::get('/faculties',[App\Http\Controllers\FacultyController::class,'index']);
-
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified'
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
+// });
