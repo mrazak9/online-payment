@@ -1,5 +1,6 @@
-<!-- program_studies/index.blade.php -->
-@extends('layouts.app')
+@extends('admin.layouts.base');
+
+@section('title', 'Data Program Study');
 
 @section('content')
 <div class="container">
@@ -14,7 +15,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
-                    <table class="table table-hover">
+                    <table id="prodi" class="table table-hover">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -53,4 +54,10 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+    <script>
+        $('#prodi').DataTable();
+    </script>
 @endsection

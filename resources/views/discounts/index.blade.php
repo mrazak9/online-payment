@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('admin.layouts.base');
+
+@section('title', 'Data Discounts');
 
 @section('content')
     <div class="container">
-        <h1>Discount</h1>
-
         <!-- Display success message -->
         @if (session('success'))
             <div class="alert alert-success">
@@ -23,7 +23,7 @@
         @endif
 
         <!-- Table to display all discounts -->
-        <table class="table">
+        <table id="discount" class="table table-bordered table-hover">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -45,14 +45,18 @@
                         <td>{{ $discount->condition }}</td>
                         <td>{{ $discount->frequency->name }}</td>
                         <td>
-                            <a href="{{ route('discounts.edit', $discount->id) }}" class="btn btn-primary btn-sm">Edit</a>
-                            <form action="{{ route('discounts.destroy', $discount->id) }}" method="post"
-                                style="display: inline-block">
+                            <a href="{{  route('discounts.show', $discount->id) }}"
+                                class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
+                            <a href="{{ route('discounts.edit', $discount->id) }}"
+                                class="btn btn-warning btn-sm"> <i class="fas fa-edit"></i> </a>
+                            <form action="{{ route('discounts.destroy', $discount->id)  }}" method="post"
+                                style="display:inline-block">
                                 @csrf
-                                @method('delete')
-                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm"><i
+                                        class="fas fa-trash"></i></button>
                             </form>
-                        </td>
+                        </td>                        
                     </tr>
                 @endforeach
             </tbody>
@@ -61,4 +65,10 @@
         <!-- Link to create new discount -->
         <a href="{{ route('discounts.create') }}" class="btn btn-primary">New Discount</a>
     </div>
+@endsection
+
+@section('js')
+    <script>
+        $('#discount').DataTable();
+    </script>
 @endsection

@@ -1,8 +1,9 @@
-@extends('layouts.app')
+@extends('admin.layouts.base');
+
+@section('title', 'Create Faculty');
 
 @section('content')
 <div class="container">
-    <h1>Add Faculty</h1>
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

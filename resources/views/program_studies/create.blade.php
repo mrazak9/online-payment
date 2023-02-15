@@ -1,5 +1,6 @@
-<!-- program_studies/create.blade.php -->
-@extends('layouts.app')
+@extends('admin.layouts.base');
+
+@section('title', 'Create Program Study');
 
 @section('content')
 <div class="container">

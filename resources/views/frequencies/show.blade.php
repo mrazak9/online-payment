@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('admin.layouts.base');
+
+@section('title', 'Detail Frequency : '.$frequency->id);
 
 @section('content')
     <div class="container">

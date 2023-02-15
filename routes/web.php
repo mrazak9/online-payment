@@ -19,9 +19,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('program_studies', 'App\Http\Controllers\ProgramStudyController');
     Route::resource('concentrations', 'App\Http\Controllers\ConcentrationController');
     Route::resource('frequencies', 'App\Http\Controllers\FrequencyController');
-    Route::resource('frequencies', 'App\Http\Controllers\FrequencyController');
     Route::resource('discounts', 'App\Http\Controllers\DiscountController');
-    // Route::get('/faculties',[App\Http\Controllers\FacultyController::class,'index']);F
+    // Route::get('/faculties',[App\Http\Controllers\FacultyController::class,'index']);
 });
 
 // Route::get('/', function () {

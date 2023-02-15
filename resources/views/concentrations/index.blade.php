@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('admin.layouts.base');
+
+@section('title', 'Data Concentration');
 
 @section('content')
 <div class="container">
@@ -9,7 +11,7 @@
 
                 <div class="card-body">
                     <a href="{{ route('concentrations.create') }}" class="btn btn-primary mb-3">Create Concentration</a>
-                    <table class="table table-bordered">
+                    <table id="concentration" class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -46,4 +48,10 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+    <script>
+        $('#concentration').DataTable();
+    </script>
 @endsection

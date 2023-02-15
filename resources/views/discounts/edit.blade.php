@@ -1,8 +1,9 @@
-@extends('layouts.app')
+@extends('admin.layouts.base');
+
+@section('title', 'Edit Discount');
 
 @section('content')
     <div class="container">
-        <h1>Edit Discount</h1>
         <!-- Display error message -->
         @if (count($errors) > 0)
             <div class="alert alert-danger">

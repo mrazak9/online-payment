@@ -1,14 +1,17 @@
-@extends('layouts.app')
+@extends('admin.layouts.base');
+
+@section('title', 'Data Frequencies');
 
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Frequencies <a href="{{ route('frequencies.create') }}" class="btn btn-primary float-right">Create New</a></div>
+                    <div class="card-header">Frequencies <a href="{{ route('frequencies.create') }}"
+                            class="btn btn-primary float-right">Create New</a></div>
 
                     <div class="card-body">
-                        <table class="table table-striped">
+                        <table id="frequency" class="table table-striped">
                             <thead>
                                 <tr>
                                     <th>Code</th>
@@ -18,15 +21,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($frequencies as $frequency)
+                                @foreach ($frequencies as $frequency)
                                     <tr>
                                         <td>{{ $frequency->code }}</td>
                                         <td>{{ $frequency->name }}</td>
                                         <td>{{ $frequency->days }}</td>
                                         <td>
-                                            <a href="{{ route('frequencies.show', $frequency) }}" class="btn btn-primary">Show</a>
-                                            <a href="{{ route('frequencies.edit', $frequency) }}" class="btn btn-warning">Edit</a>
-                                            <form action="{{ route('frequencies.destroy', $frequency) }}" method="post" style="display:inline">
+                                            <a href="{{ route('frequencies.show', $frequency) }}"
+                                                class="btn btn-primary">Show</a>
+                                            <a href="{{ route('frequencies.edit', $frequency) }}"
+                                                class="btn btn-warning">Edit</a>
+                                            <form action="{{ route('frequencies.destroy', $frequency) }}" method="post"
+                                                style="display:inline">
                                                 @csrf
                                                 @method('DELETE')
 
@@ -42,4 +48,10 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script>
+        $('#frequency').DataTable();
+    </script>
 @endsection

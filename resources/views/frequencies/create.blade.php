@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('admin.layouts.base');
+
+@section('title', 'Create Frequency');
 
 @section('content')
     <div class="container">

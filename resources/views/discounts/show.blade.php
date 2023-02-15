@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('admin.layouts.base');
+
+@section('title', 'Detail Discount : '.$discount->id);
 
 @section('content')
     <div class="container">

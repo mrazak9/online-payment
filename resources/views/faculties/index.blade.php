@@ -67,3 +67,9 @@
         </div>
     </div>
 @endsection
+
+@section('js')
+    <script>
+        $('#faculty').DataTable();
+    </script>
+@endsection

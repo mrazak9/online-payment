@@ -1,8 +1,9 @@
-@extends('layouts.app')
+@extends('admin.layouts.base');
+
+@section('title', 'Show Detail id : '.$faculty->id);
 
 @section('content')
     <div class="container">
-        <h1>Faculty Detail</h1>
         <table class="table table-bordered">
             <tr>
                 <td>ID</td>
